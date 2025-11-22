@@ -1,506 +1,470 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="th">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #a7c598; -webkit-text-stroke: #a7c598}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #71c083; -webkit-text-stroke: #71c083}
-    span.s1 {font-kerning: none; background-color: #171818}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
-    span.s9 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
-    span.s10 {font-kerning: none; color: #b76ff7; background-color: #171818; -webkit-text-stroke: 0px #b76ff7}
-    span.s11 {font-kerning: none}
-    span.s12 {font-kerning: none; color: #6d7378; background-color: #171818; -webkit-text-stroke: 0px #6d7378}
-    span.s13 {font-kerning: none; color: #f67c30; background-color: #171818; -webkit-text-stroke: 0px #f67c30}
-    span.s14 {font-kerning: none; color: #36c0a0; background-color: #171818; -webkit-text-stroke: 0px #36c0a0}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Trip 8 Days (AI Powered)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #fff1f2; /* Pastel Pink Background */
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        }
+        .pass-badge-metro {
+            background: #e0f2fe; color: #0284c7; border: 1px solid #7dd3fc;
+        }
+        .pass-badge-jr {
+            background: #d1fae5; color: #059669; border: 1px solid #6ee7b7;
+        }
+        .pass-badge-pay {
+            background: #f3f4f6; color: #4b5563; border: 1px solid #d1d5db;
+        }
+        .day-circle {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 0.875rem;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* AI Chat Styles */
+        .ai-float-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(167, 139, 250, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(167, 139, 250, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(167, 139, 250, 0); }
+        }
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: white; }
+            .card-shadow { box-shadow: none; }
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"th"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">Tokyo Trip 8 Days (AI Powered)</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.jsdelivr.net/npm/marked/marked.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s8">'Kanit'</span><span class="s7">,</span><span class="s1"> </span><span class="s5">sans-serif</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s4"> #fff1f2</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Pastel Pink Background */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.card-shadow</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s4"> </span><span class="s1">0</span><span class="s4"> </span><span class="s1">10px</span><span class="s4"> </span><span class="s1">25px</span><span class="s4"> </span><span class="s1">-5px</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0.1</span><span class="s5">)</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0</span><span class="s4"> </span><span class="s1">8px</span><span class="s4"> </span><span class="s1">10px</span><span class="s4"> </span><span class="s1">-6px</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0</span><span class="s7">,</span><span class="s4"> </span><span class="s1">0.1</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.gradient-header</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s5">linear-gradient(</span><span class="s9">135deg</span><span class="s7">,</span><span class="s1"> #fbc2eb </span><span class="s9">0%</span><span class="s7">,</span><span class="s1"> #a6c1ee </span><span class="s9">100%</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.pass-badge-metro</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #e0f2fe</span><span class="s7">;</span><span class="s1"> </span><span class="s2">color:</span><span class="s1"> #0284c7</span><span class="s7">;</span><span class="s1"> </span><span class="s2">border:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #7dd3fc</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.pass-badge-jr</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #d1fae5</span><span class="s7">;</span><span class="s1"> </span><span class="s2">color:</span><span class="s1"> #059669</span><span class="s7">;</span><span class="s1"> </span><span class="s2">border:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #6ee7b7</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.pass-badge-pay</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #f3f4f6</span><span class="s7">;</span><span class="s1"> </span><span class="s2">color:</span><span class="s1"> #4b5563</span><span class="s7">;</span><span class="s1"> </span><span class="s2">border:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #d1d5db</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.day-circle</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">2rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">2rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">justify-content:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s9">9999px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s5">bold</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s9">0.875rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s9">10</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">2px</span><span class="s1"> </span><span class="s9">4px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s9">0</span><span class="s7">,</span><span class="s9">0</span><span class="s7">,</span><span class="s9">0</span><span class="s7">,</span><span class="s9">0.1</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* AI Chat Styles */</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.ai-float-btn</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">fixed</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">bottom:</span><span class="s1"> </span><span class="s9">2rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">right:</span><span class="s1"> </span><span class="s9">2rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s9">50</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">animation:</span><span class="s4"> </span><span class="s1">pulse-glow</span><span class="s4"> </span><span class="s9">2s</span><span class="s4"> </span><span class="s1">infinite</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">@keyframes</span><span class="s1"> </span><span class="s5">pulse-glow</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s9">0%</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s9">167</span><span class="s7">,</span><span class="s1"> </span><span class="s9">139</span><span class="s7">,</span><span class="s1"> </span><span class="s9">250</span><span class="s7">,</span><span class="s1"> </span><span class="s9">0.7</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s9">70%</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">15px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s9">167</span><span class="s7">,</span><span class="s1"> </span><span class="s9">139</span><span class="s7">,</span><span class="s1"> </span><span class="s9">250</span><span class="s7">,</span><span class="s1"> </span><span class="s9">0</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s9">100%</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s9">167</span><span class="s7">,</span><span class="s1"> </span><span class="s9">139</span><span class="s7">,</span><span class="s1"> </span><span class="s9">250</span><span class="s7">,</span><span class="s1"> </span><span class="s9">0</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.typing-dot</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">animation:</span><span class="s4"> </span><span class="s1">typing</span><span class="s4"> </span><span class="s9">1.4s</span><span class="s4"> </span><span class="s1">infinite</span><span class="s4"> </span><span class="s1">ease-in-out</span><span class="s4"> </span><span class="s1">both</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.typing-dot:nth-child</span><span class="s4">(1) </span><span class="s7">{</span><span class="s4"> </span><span class="s2">animation-delay:</span><span class="s4"> </span><span class="s9">-0.32s</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.typing-dot:nth-child</span><span class="s4">(2) </span><span class="s7">{</span><span class="s4"> </span><span class="s2">animation-delay:</span><span class="s4"> </span><span class="s9">-0.16s</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">@keyframes</span><span class="s1"> </span><span class="s5">typing</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s9">0%</span><span class="s7">,</span><span class="s1"> </span><span class="s9">80%</span><span class="s7">,</span><span class="s1"> </span><span class="s9">100%</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">scale(</span><span class="s9">0</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s9">40%</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">scale(</span><span class="s9">1</span><span class="s5">)</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> </span><span class="s6">print</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>.no-print { </span><span class="s2">display:</span><span class="s1"> </span><span class="s5">none</span><span class="s1"> </span><span class="s10">!important</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s6">body</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">background-color:</span><span class="s4"> </span><span class="s5">white</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">.card-shadow</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"py-8 px-4 min-h-screen flex flex-col items-center justify-start relative"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full max-w-2xl bg-white rounded-3xl overflow-hidden card-shadow relative mb-6"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Header --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"gradient-header p-8 text-center text-white relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute top-4 right-4 no-print flex gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"generatePackingList()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/30 hover:bg-white/50 text-white px-3 py-1 rounded-full text-sm transition flex items-center gap-1"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-suitcase"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> ✨ จัดกระเป๋า</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"window.print()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/30 hover:bg-white/50 text-white px-3 py-1 rounded-full text-sm transition"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-print"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> Print</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl font-bold drop-shadow-md"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-snowflake mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s4">TOKYO WINTER</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-lg opacity-90 font-medium mt-1"</span><span class="s3">&gt;</span><span class="s1">8 Days 7 Nights (2-9 Feb 2026)</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 bg-white/30 backdrop-blur-md rounded-full inline-block px-4 py-1 text-sm font-medium shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>✨ แผนเที่ยวอัจฉริยะ AI-Powered</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Legend --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-4 flex flex-wrap justify-center gap-4 border-b border-gray-100 text-sm"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center font-bold text-blue-500"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-ticket-alt mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> Metro Pass</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center font-bold text-green-600"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-train mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> JR Wide Pass</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center font-bold text-gray-500"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-coins mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> จ่ายตามจริง/Bus</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Timeline Container --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-6 space-y-8"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- SECTION 1: METRO DAYS --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative pl-6 border-l-2 border-dashed border-blue-300"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 1 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mb-8 relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white"</span><span class="s3">&gt;</span><span class="s4">1</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow cursor-pointer"</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"askGemini('แนะนำร้านอาหารอร่อยแถว Asakusa หรือ Ueno สำหรับมื้อเย็นราคาประหยัดหน่อย')"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-start mb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Mon 02: Hello Tokyo!</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pass-badge-metro text-xs px-2 py-1 rounded-full font-bold"</span><span class="s3">&gt;</span><span class="s4">Metro 48hr</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-600 text-sm mb-3"</span><span class="s3">&gt;</span><span class="s1">✈️ ถึง 08:15 น. -&gt; ฝากของ -&gt; เที่ยววัดเก่า</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex gap-2 flex-wrap"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍Asakusa</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍Skytree</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍Ueno</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mt-2 text-right"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-blue-400"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-sparkles"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> แตะเพื่อหาของกิน</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 2 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white"</span><span class="s3">&gt;</span><span class="s4">2</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-start mb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Tue 03: Art &amp; Bay</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pass-badge-metro text-xs px-2 py-1 rounded-full font-bold"</span><span class="s3">&gt;</span><span class="s4">Metro 48hr</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-600 text-sm mb-3"</span><span class="s3">&gt;</span><span class="s1">🐠 อาหารเช้าตลาดปลา -&gt; ดิจิทัลอาร์ต -&gt; วิวอ่าว</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex gap-2 flex-wrap"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍Tsukiji</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍TeamLab</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50"</span><span class="s3">&gt;</span><span class="s4">📍Odaiba</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-blue-400 mt-2"</span><span class="s3">&gt;</span><span class="s1">*Odaiba จ่ายเพิ่มค่า Yurikamome</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- SECTION 2: PAY AS YOU GO --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative pl-6 border-l-2 border-dashed border-gray-300"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 3 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white"</span><span class="s3">&gt;</span><span class="s4">3</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"askGemini('ช่วยเล่าประวัติวัดพระใหญ่ Kamakura Daibutsu แบบสั้นๆ สนุกๆ หน่อย')"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-start mb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Wed 04: Seaside Vibe</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pass-badge-pay text-xs px-2 py-1 rounded-full font-bold"</span><span class="s3">&gt;</span><span class="s4">IC Card</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-600 text-sm mb-3"</span><span class="s3">&gt;</span><span class="s1">🌊 นั่งรถไฟไปไหว้พระใหญ่ริมทะเล &amp; โยโกฮาม่า</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex gap-2 flex-wrap"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50"</span><span class="s3">&gt;</span><span class="s4">📍Kamakura</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50"</span><span class="s3">&gt;</span><span class="s4">📍Yokohama</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mt-2 text-right"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-purple-400"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-sparkles"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> แตะเพื่อฟังประวัติ</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- SECTION 3: JR WIDE PASS (HIGHLIGHT) --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-green-50 rounded-2xl p-5 border-2 border-green-200 relative mt-6 shadow-inner"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg border-2 border-white"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>🚄 JR Tokyo Wide Pass Zone (Thu-Sat)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 4 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex gap-4 mb-6 mt-4 items-start cursor-pointer"</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"askGemini('ไป Gala Yuzawa ต้องเตรียมตัวอย่างไร เสื้อผ้าแบบไหน')"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"day-circle bg-white text-green-600 border-2 border-green-100 shrink-0"</span><span class="s3">&gt;</span><span class="s4">4</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"w-full"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-green-900"</span><span class="s3">&gt;</span><span class="s1">Thu 05: Snow Fun ❄️</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">นั่ง Shinkansen ไปเล่นหิมะที่ </span><span class="s3">&lt;</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1">Gala Yuzawa</span><span class="s3">&lt;/</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1"> (ไปเช้า-เย็นกลับ)</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 text-xs text-green-600 opacity-70"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-sparkles"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s4"> แตะเพื่อขอคำแนะนำชุดลุยหิมะ</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 5 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex gap-4 mb-6 items-start"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"day-circle bg-white text-green-600 border-2 border-green-100 shrink-0"</span><span class="s3">&gt;</span><span class="s4">5</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-green-900"</span><span class="s3">&gt;</span><span class="s1">Fri 06: Shopping &amp; Anime 🛍️</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">นั่ง Shinkansen ไป </span><span class="s3">&lt;</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1">Karuizawa</span><span class="s3">&lt;/</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1"> เย็นกลับมาเดิน </span><span class="s3">&lt;</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1">Akihabara</span><span class="s3">&lt;/</span><span class="s6">b</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">&lt;!-- Day 6 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex gap-4 items-start"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"day-circle bg-white text-green-600 border-2 border-green-100 shrink-0"</span><span class="s3">&gt;</span><span class="s4">6</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-green-900"</span><span class="s3">&gt;</span><span class="s1">Sat 07: Mt. Fuji Stay 🗻</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">นั่ง Fuji Excursion ยิงยาวไปค้างคืนที่ </span><span class="s3">&lt;</span><span class="s6">b</span><span class="s3">&gt;</span><span class="s1">Kawaguchiko</span><span class="s3">&lt;/</span><span class="s6">b</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- SECTION 4: BUS &amp; RETURN --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative pl-6 border-l-2 border-dashed border-yellow-300 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                 </span></span><span class="s12">&lt;!-- Day 7 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mb-8 relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -left-[2.3rem] top-0 day-circle bg-yellow-100 text-yellow-600 border-2 border-white"</span><span class="s3">&gt;</span><span class="s4">7</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-yellow-50 p-4 rounded-xl border border-yellow-200"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-start mb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Sun 08: Youth City</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-yellow-100 text-yellow-800 border border-yellow-300 text-xs px-2 py-1 rounded-full font-bold"</span><span class="s3">&gt;</span><span class="s4">Bus + IC</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-600 text-sm mb-3"</span><span class="s3">&gt;</span><span class="s1">🚌 นั่งบัสกลับชินจูกุ -&gt; เดินย่านวัยรุ่น</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex gap-2 flex-wrap"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50"</span><span class="s3">&gt;</span><span class="s4">📍Shinjuku</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50"</span><span class="s3">&gt;</span><span class="s4">📍Harajuku</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50"</span><span class="s3">&gt;</span><span class="s4">📍Shibuya</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                 </span></span><span class="s12">&lt;!-- Day 8 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                 </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white"</span><span class="s3">&gt;</span><span class="s4">8</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-100 p-4 rounded-xl border border-gray-200"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between items-start mb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Mon 09: Bye Bye! 👋</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pass-badge-pay text-xs px-2 py-1 rounded-full font-bold"</span><span class="s3">&gt;</span><span class="s4">Keisei Train</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-600 text-sm mb-2"</span><span class="s3">&gt;</span><span class="s1">เก็บตกของฝาก -&gt; ไปสนามบิน (รถไฟธรรมดา)</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white text-red-500 border border-red-100 text-xs px-3 py-2 rounded-lg inline-block font-medium shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-plane mr-1"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s1"> Flight 17:35 (ถึงสนามบิน 15:30)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Footer --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50 p-6 border-t border-gray-200 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h4</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold text-gray-700 mb-2"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-piggy-bank text-pink-500 mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s4">ประมาณการค่าเดินทาง</span><span class="s3">&lt;/</span><span class="s6">h4</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl font-bold text-green-600"</span><span class="s3">&gt;</span><span class="s4">~26,000 เยน</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-gray-400 mt-1"</span><span class="s3">&gt;</span><span class="s1">(ประหยัดกว่าซื้อแยก ~40%)</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center text-gray-400 text-xs no-print mb-20"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">Generated with Gemini AI</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Floating AI Button --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"toggleChat()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"ai-float-btn no-print bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center gap-2 group"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-sparkles text-xl group-hover:rotate-12 transition-transform"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold pr-1 hidden group-hover:inline-block whitespace-nowrap transition-all"</span><span class="s3">&gt;</span><span class="s4">ถาม AI</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">button</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- AI Chat Modal --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"ai-modal"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed inset-0 bg-black/50 z-[100] hidden flex items-end sm:items-center justify-center p-4 no-print backdrop-blur-sm"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white w-full max-w-md rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col max-h-[80vh] overflow-hidden transform transition-all scale-95 opacity-0"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"ai-modal-content"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Modal Header --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gradient-to-r from-purple-600 to-indigo-600 p-4 text-white flex justify-between items-center shrink-0"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-robot"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold"</span><span class="s3">&gt;</span><span class="s1">Gemini Travel Assistant</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"toggleChat()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-white/80 hover:text-white transition"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-times text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Chat Area --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"chat-history"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[300px]"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Welcome Message --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-start gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"fas fa-sparkles text-sm"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700 border border-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>สวัสดีครับ! ผมคือ AI ผู้ช่วยวางแผนเที่ยวโตเกียวของคุณ 🇯🇵 มีอะไรให้ช่วยไหมครับ? </span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;&lt;</span><span class="s6">br</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>ตัวอย่างคำถาม:</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"list-disc ml-4 mt-1 text-xs text-gray-500 space-y-1"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">"ขอคำศัพท์ญี่ปุ่นสำหรับสั่งอาหารหน่อย"</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">"แนะนำร้านขนมใน Karuizawa"</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s1">"อากาศเดือนกุมภาหนาวแค่ไหน"</span><span class="s3">&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Input Area --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-4 bg-white border-t border-gray-100 shrink-0"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"user-input"</span><span class="s4"> </span><span class="s2">placeholder</span><span class="s3">=</span><span class="s1">"พิมพ์คำถามของคุณที่นี่..."</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full bg-gray-100 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"</span><span class="s4"> </span><span class="s2">onkeypress</span><span class="s3">=</span><span class="s1">"handleKeyPress(event)"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"sendMessage()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute right-2 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"send-btn"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fas fa-paper-plane text-xs"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s10">const</span><span class="s4"> apiKey </span><span class="s7">=</span><span class="s4"> </span><span class="s1">"AIzaSyCBCpl5xsJrKp9Yg60frZTXOMExH9-5tQQ"</span><span class="s7">;</span><span class="s4"> </span><span class="s12">// System provides API key</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Toggle Chat Modal</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> toggleChat</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> modal </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'ai-modal'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> content </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'ai-modal-content'</span><span class="s7">);</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">modal</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">contains</span><span class="s7">(</span><span class="s8">'hidden'</span><span class="s7">))</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>modal</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">remove</span><span class="s7">(</span><span class="s8">'hidden'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout</span><span class="s7">(()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>content</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">remove</span><span class="s7">(</span><span class="s8">'scale-95'</span><span class="s7">,</span><span class="s1"> </span><span class="s8">'opacity-0'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>content</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">add</span><span class="s7">(</span><span class="s8">'scale-100'</span><span class="s7">,</span><span class="s1"> </span><span class="s8">'opacity-100'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'user-input'</span><span class="s7">).</span><span class="s1">focus</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span><span class="s1"> </span><span class="s13">10</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span><span class="s1"> </span><span class="s10">else</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>content</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">remove</span><span class="s7">(</span><span class="s8">'scale-100'</span><span class="s7">,</span><span class="s1"> </span><span class="s8">'opacity-100'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>content</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">add</span><span class="s7">(</span><span class="s8">'scale-95'</span><span class="s7">,</span><span class="s1"> </span><span class="s8">'opacity-0'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout</span><span class="s7">(()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>modal</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">add</span><span class="s7">(</span><span class="s8">'hidden'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span><span class="s1"> </span><span class="s13">300</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Handle Enter Key</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> handleKeyPress</span><span class="s7">(</span><span class="s1">event</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">event</span><span class="s7">.</span><span class="s1">key </span><span class="s7">===</span><span class="s1"> </span><span class="s8">'Enter'</span><span class="s7">)</span><span class="s1"> sendMessage</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Helper to scroll to bottom</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> scrollToBottom</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> chatHistory </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'chat-history'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>chatHistory</span><span class="s7">.</span><span class="s1">scrollTop </span><span class="s7">=</span><span class="s1"> chatHistory</span><span class="s7">.</span><span class="s1">scrollHeight</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Generate Response using Gemini</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">async</span><span class="s1"> </span><span class="s10">function</span><span class="s1"> callGeminiAPI</span><span class="s7">(</span><span class="s1">prompt</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s4"> url </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=</span><span class="s7">${</span><span class="s4">apiKey</span><span class="s7">}</span><span class="s1">`</span><span class="s7">;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> data </span><span class="s7">=</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>contents</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>parts</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[{</span><span class="s1"> text</span><span class="s7">:</span><span class="s1"> prompt </span><span class="s7">}]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">}]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">};</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">try</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s10">const</span><span class="s1"> response </span><span class="s7">=</span><span class="s1"> </span><span class="s10">await</span><span class="s1"> fetch</span><span class="s7">(</span><span class="s1">url</span><span class="s7">,</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>method</span><span class="s7">:</span><span class="s1"> </span><span class="s8">'POST'</span><span class="s7">,</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                    </span>headers</span><span class="s7">:</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">'Content-Type'</span><span class="s7">:</span><span class="s4"> </span><span class="s1">'application/json'</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>body</span><span class="s7">:</span><span class="s1"> </span><span class="s14">JSON</span><span class="s7">.</span><span class="s1">stringify</span><span class="s7">(</span><span class="s1">data</span><span class="s7">)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s10">if</span><span class="s1"> </span><span class="s7">(!</span><span class="s1">response</span><span class="s7">.</span><span class="s1">ok</span><span class="s7">)</span><span class="s1"> </span><span class="s10">throw</span><span class="s1"> </span><span class="s10">new</span><span class="s1"> </span><span class="s14">Error</span><span class="s7">(</span><span class="s8">'API Error'</span><span class="s7">);</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s10">const</span><span class="s1"> result </span><span class="s7">=</span><span class="s1"> </span><span class="s10">await</span><span class="s1"> response</span><span class="s7">.</span><span class="s1">json</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s10">return</span><span class="s1"> result</span><span class="s7">.</span><span class="s1">candidates</span><span class="s7">[</span><span class="s13">0</span><span class="s7">].</span><span class="s1">content</span><span class="s7">.</span><span class="s1">parts</span><span class="s7">[</span><span class="s13">0</span><span class="s7">].</span><span class="s1">text</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span><span class="s1"> </span><span class="s10">catch</span><span class="s1"> </span><span class="s7">(</span><span class="s1">error</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>console</span><span class="s7">.</span><span class="s1">error</span><span class="s7">(</span><span class="s8">'Error:'</span><span class="s7">,</span><span class="s1"> error</span><span class="s7">);</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s10">return</span><span class="s4"> </span><span class="s1">"ขออภัยครับ ระบบขัดข้องชั่วคราว กรุณาลองใหม่ภายหลัง"</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Add Message to UI</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> addMessage</span><span class="s7">(</span><span class="s1">text</span><span class="s7">,</span><span class="s1"> isUser </span><span class="s7">=</span><span class="s1"> </span><span class="s10">false</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> history </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'chat-history'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> div </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">createElement</span><span class="s7">(</span><span class="s8">'div'</span><span class="s7">);</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span>div</span><span class="s7">.</span><span class="s4">className </span><span class="s7">=</span><span class="s4"> isUser </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'flex items-end justify-end gap-2'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'flex items-start gap-3'</span><span class="s7">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> avatar </span><span class="s7">=</span><span class="s1"> isUser<span class="Apple-converted-space"> </span></span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s7">?</span><span class="s4"> </span><span class="s1">`&lt;div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 shrink-0 order-2"&gt;&lt;i class="fas fa-user text-sm"&gt;&lt;/i&gt;&lt;/div&gt;`</span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s7">:</span><span class="s4"> </span><span class="s1">`&lt;div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0"&gt;&lt;i class="fas fa-sparkles text-sm"&gt;&lt;/i&gt;&lt;/div&gt;`</span><span class="s7">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> bubbleClass </span><span class="s7">=</span><span class="s1"> isUser<span class="Apple-converted-space"> </span></span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s7">?</span><span class="s4"> </span><span class="s1">'bg-indigo-600 text-white rounded-2xl rounded-tr-none shadow-md'</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s7">:</span><span class="s4"> </span><span class="s1">'bg-white text-gray-700 rounded-2xl rounded-tl-none shadow-sm border border-gray-100'</span><span class="s7">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Parse Markdown for bot messages</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> contentHtml </span><span class="s7">=</span><span class="s1"> isUser </span><span class="s7">?</span><span class="s1"> text </span><span class="s7">:</span><span class="s1"> marked</span><span class="s7">.</span><span class="s1">parse</span><span class="s7">(</span><span class="s1">text</span><span class="s7">);</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>div</span><span class="s7">.</span><span class="s1">innerHTML </span><span class="s7">=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">${</span><span class="s4">avatar</span><span class="s7">}</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="</span><span class="s7">${</span><span class="s4">bubbleClass</span><span class="s7">}</span><span class="s1"> p-3 text-sm max-w-[80%] prose prose-sm </span><span class="s7">${</span><span class="s4">isUser </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'prose-invert'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">''</span><span class="s7">}</span><span class="s1">"&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">${</span><span class="s4">contentHtml</span><span class="s7">}</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span>`</span><span class="s7">;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>history</span><span class="s7">.</span><span class="s1">appendChild</span><span class="s7">(</span><span class="s1">div</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>scrollToBottom</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Show Loading Indicator</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> showLoading</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> history </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'chat-history'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> div </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">createElement</span><span class="s7">(</span><span class="s8">'div'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>div</span><span class="s7">.</span><span class="s1">id </span><span class="s7">=</span><span class="s1"> </span><span class="s8">'loading-dots'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>div</span><span class="s7">.</span><span class="s1">className </span><span class="s7">=</span><span class="s1"> </span><span class="s8">'flex items-start gap-3'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>div</span><span class="s7">.</span><span class="s1">innerHTML </span><span class="s7">=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0"&gt;&lt;i class="fas fa-sparkles text-sm"&gt;&lt;/i&gt;&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 flex gap-1"&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"&gt;&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"&gt;&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"&gt;&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span>`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>history</span><span class="s7">.</span><span class="s1">appendChild</span><span class="s7">(</span><span class="s1">div</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>scrollToBottom</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> removeLoading</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> loading </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'loading-dots'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">loading</span><span class="s7">)</span><span class="s1"> loading</span><span class="s7">.</span><span class="s1">remove</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Main Send Logic</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">async</span><span class="s1"> </span><span class="s10">function</span><span class="s1"> sendMessage</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> input </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'user-input'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> text </span><span class="s7">=</span><span class="s1"> input</span><span class="s7">.</span><span class="s1">value</span><span class="s7">.</span><span class="s1">trim</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">if</span><span class="s1"> </span><span class="s7">(!</span><span class="s1">text</span><span class="s7">)</span><span class="s1"> </span><span class="s10">return</span><span class="s7">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>input</span><span class="s7">.</span><span class="s1">value </span><span class="s7">=</span><span class="s1"> </span><span class="s8">''</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>input</span><span class="s7">.</span><span class="s1">disabled </span><span class="s7">=</span><span class="s1"> </span><span class="s10">true</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'send-btn'</span><span class="s7">).</span><span class="s1">disabled </span><span class="s7">=</span><span class="s1"> </span><span class="s10">true</span><span class="s7">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>addMessage</span><span class="s7">(</span><span class="s1">text</span><span class="s7">,</span><span class="s1"> </span><span class="s10">true</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>showLoading</span><span class="s7">();</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s4"> systemContext </span><span class="s7">=</span><span class="s4"> </span><span class="s1">"You are a helpful Tokyo travel assistant. The user is going on an 8-day trip to Tokyo, Kamakura, Gala Yuzawa, Karuizawa, and Kawaguchiko in early February. It is winter. Answer briefly, helpful, and in Thai language."</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> response </span><span class="s7">=</span><span class="s1"> </span><span class="s10">await</span><span class="s1"> callGeminiAPI</span><span class="s7">(</span><span class="s8">`</span><span class="s7">${</span><span class="s1">systemContext</span><span class="s7">}</span><span class="s8">\n\nUser Question: </span><span class="s7">${</span><span class="s1">text</span><span class="s7">}</span><span class="s8">`</span><span class="s7">);</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>removeLoading</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>addMessage</span><span class="s7">(</span><span class="s1">response</span><span class="s7">,</span><span class="s1"> </span><span class="s10">false</span><span class="s7">);</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>input</span><span class="s7">.</span><span class="s1">disabled </span><span class="s7">=</span><span class="s1"> </span><span class="s10">false</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'send-btn'</span><span class="s7">).</span><span class="s1">disabled </span><span class="s7">=</span><span class="s1"> </span><span class="s10">false</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>input</span><span class="s7">.</span><span class="s1">focus</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Quick Action: Ask Gemini</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">function</span><span class="s1"> askGemini</span><span class="s7">(</span><span class="s1">question</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>toggleChat</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> input </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'user-input'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>input</span><span class="s7">.</span><span class="s1">value </span><span class="s7">=</span><span class="s1"> question</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>sendMessage</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Feature: Generate Packing List</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s10">async</span><span class="s1"> </span><span class="s10">function</span><span class="s1"> generatePackingList</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>toggleChat</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> input </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'user-input'</span><span class="s7">);</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span>addMessage</span><span class="s7">(</span><span class="s1">"✨ ช่วยจัดกระเป๋าสำหรับทริปโตเกียว 8 วันในเดือนกุมภาพันธ์ให้หน่อย"</span><span class="s7">,</span><span class="s4"> </span><span class="s10">true</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>showLoading</span><span class="s7">();</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p8"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s4"> prompt </span><span class="s7">=</span><span class="s4"> </span><span class="s1">"Create a concise packing list for an 8-day trip to Tokyo, Gala Yuzawa (snow), and Kawaguchiko in early February. Format as a checklist using Markdown. Language: Thai."</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">const</span><span class="s1"> response </span><span class="s7">=</span><span class="s1"> </span><span class="s10">await</span><span class="s1"> callGeminiAPI</span><span class="s7">(</span><span class="s1">prompt</span><span class="s7">);</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>removeLoading</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>addMessage</span><span class="s7">(</span><span class="s1">response</span><span class="s7">,</span><span class="s1"> </span><span class="s10">false</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="py-8 px-4 min-h-screen flex flex-col items-center justify-start relative">
+
+    <div class="w-full max-w-2xl bg-white rounded-3xl overflow-hidden card-shadow relative mb-6">
+        
+        <!-- Header -->
+        <div class="gradient-header p-8 text-center text-white relative">
+            <div class="absolute top-4 right-4 no-print flex gap-2">
+                <button onclick="generatePackingList()" class="bg-white/30 hover:bg-white/50 text-white px-3 py-1 rounded-full text-sm transition flex items-center gap-1">
+                    <i class="fas fa-suitcase"></i> ✨ จัดกระเป๋า
+                </button>
+                <button onclick="window.print()" class="bg-white/30 hover:bg-white/50 text-white px-3 py-1 rounded-full text-sm transition">
+                    <i class="fas fa-print"></i> Print
+                </button>
+            </div>
+            <h1 class="text-3xl font-bold drop-shadow-md"><i class="fas fa-snowflake mr-2"></i>TOKYO WINTER</h1>
+            <p class="text-lg opacity-90 font-medium mt-1">8 Days 7 Nights (2-9 Feb 2026)</p>
+            <div class="mt-4 bg-white/30 backdrop-blur-md rounded-full inline-block px-4 py-1 text-sm font-medium shadow-sm">
+                ✨ แผนเที่ยวอัจฉริยะ AI-Powered
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="bg-white p-4 flex flex-wrap justify-center gap-4 border-b border-gray-100 text-sm">
+            <div class="flex items-center font-bold text-blue-500">
+                <i class="fas fa-ticket-alt mr-2"></i> Metro Pass
+            </div>
+            <div class="flex items-center font-bold text-green-600">
+                <i class="fas fa-train mr-2"></i> JR Wide Pass
+            </div>
+            <div class="flex items-center font-bold text-gray-500">
+                <i class="fas fa-coins mr-2"></i> จ่ายตามจริง/Bus
+            </div>
+        </div>
+
+        <!-- Timeline Container -->
+        <div class="p-6 space-y-8">
+
+            <!-- SECTION 1: METRO DAYS -->
+            <div class="relative pl-6 border-l-2 border-dashed border-blue-300">
+                <!-- Day 1 -->
+                <div class="mb-8 relative">
+                    <div class="absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white">1</div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow cursor-pointer" onclick="askGemini('แนะนำร้านอาหารอร่อยแถว Asakusa หรือ Ueno สำหรับมื้อเย็นราคาประหยัดหน่อย')">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">Mon 02: Hello Tokyo!</h3>
+                            <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">✈️ ถึง 08:15 น. -> ฝากของ -> เที่ยววัดเก่า</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Asakusa</span>
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Skytree</span>
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Ueno</span>
+                        </div>
+                        <div class="mt-2 text-right">
+                             <span class="text-xs text-blue-400"><i class="fas fa-sparkles"></i> แตะเพื่อหาของกิน</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white">2</div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">Tue 03: Art & Bay</h3>
+                            <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">🐠 อาหารเช้าตลาดปลา -> ดิจิทัลอาร์ต -> วิวอ่าว</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Tsukiji</span>
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍TeamLab</span>
+                            <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Odaiba</span>
+                        </div>
+                        <p class="text-xs text-blue-400 mt-2">*Odaiba จ่ายเพิ่มค่า Yurikamome</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: PAY AS YOU GO -->
+            <div class="relative pl-6 border-l-2 border-dashed border-gray-300">
+                <!-- Day 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white">3</div>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-shadow cursor-pointer" onclick="askGemini('ช่วยเล่าประวัติวัดพระใหญ่ Kamakura Daibutsu แบบสั้นๆ สนุกๆ หน่อย')">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">Wed 04: Seaside Vibe</h3>
+                            <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">IC Card</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">🌊 นั่งรถไฟไปไหว้พระใหญ่ริมทะเล & โยโกฮาม่า</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50">📍Kamakura</span>
+                            <span class="bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50">📍Yokohama</span>
+                        </div>
+                        <div class="mt-2 text-right">
+                             <span class="text-xs text-purple-400"><i class="fas fa-sparkles"></i> แตะเพื่อฟังประวัติ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: JR WIDE PASS (HIGHLIGHT) -->
+            <div class="bg-green-50 rounded-2xl p-5 border-2 border-green-200 relative mt-6 shadow-inner">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg border-2 border-white">
+                    🚄 JR Tokyo Wide Pass Zone (Thu-Sat)
+                </div>
+
+                <!-- Day 4 -->
+                <div class="flex gap-4 mb-6 mt-4 items-start cursor-pointer" onclick="askGemini('ไป Gala Yuzawa ต้องเตรียมตัวอย่างไร เสื้อผ้าแบบไหน')">
+                    <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">4</div>
+                    <div class="w-full">
+                        <h3 class="font-bold text-green-900">Thu 05: Snow Fun ❄️</h3>
+                        <p class="text-sm text-gray-600">นั่ง Shinkansen ไปเล่นหิมะที่ <b>Gala Yuzawa</b> (ไปเช้า-เย็นกลับ)</p>
+                        <div class="mt-1 text-xs text-green-600 opacity-70"><i class="fas fa-sparkles"></i> แตะเพื่อขอคำแนะนำชุดลุยหิมะ</div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="flex gap-4 mb-6 items-start">
+                    <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">5</div>
+                    <div>
+                        <h3 class="font-bold text-green-900">Fri 06: Shopping & Anime 🛍️</h3>
+                        <p class="text-sm text-gray-600">นั่ง Shinkansen ไป <b>Karuizawa</b> เย็นกลับมาเดิน <b>Akihabara</b></p>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="flex gap-4 items-start">
+                    <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">6</div>
+                    <div>
+                        <h3 class="font-bold text-green-900">Sat 07: Mt. Fuji Stay 🗻</h3>
+                        <p class="text-sm text-gray-600">นั่ง Fuji Excursion ยิงยาวไปค้างคืนที่ <b>Kawaguchiko</b></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: BUS & RETURN -->
+            <div class="relative pl-6 border-l-2 border-dashed border-yellow-300 pt-4">
+                 <!-- Day 7 -->
+                <div class="mb-8 relative">
+                    <div class="absolute -left-[2.3rem] top-0 day-circle bg-yellow-100 text-yellow-600 border-2 border-white">7</div>
+                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">Sun 08: Youth City</h3>
+                            <span class="bg-yellow-100 text-yellow-800 border border-yellow-300 text-xs px-2 py-1 rounded-full font-bold">Bus + IC</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">🚌 นั่งบัสกลับชินจูกุ -> เดินย่านวัยรุ่น</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Shinjuku</span>
+                            <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Harajuku</span>
+                            <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Shibuya</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Day 8 -->
+                 <div class="relative">
+                    <div class="absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white">8</div>
+                    <div class="bg-gray-100 p-4 rounded-xl border border-gray-200">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">Mon 09: Bye Bye! 👋</h3>
+                            <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">Keisei Train</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">เก็บตกของฝาก -> ไปสนามบิน (รถไฟธรรมดา)</p>
+                        <div class="bg-white text-red-500 border border-red-100 text-xs px-3 py-2 rounded-lg inline-block font-medium shadow-sm">
+                            <i class="fas fa-plane mr-1"></i> Flight 17:35 (ถึงสนามบิน 15:30)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-50 p-6 border-t border-gray-200 text-center">
+            <h4 class="font-bold text-gray-700 mb-2"><i class="fas fa-piggy-bank text-pink-500 mr-2"></i>ประมาณการค่าเดินทาง</h4>
+            <p class="text-3xl font-bold text-green-600">~26,000 เยน</p>
+            <p class="text-xs text-gray-400 mt-1">(ประหยัดกว่าซื้อแยก ~40%)</p>
+        </div>
+
+    </div>
+
+    <div class="text-center text-gray-400 text-xs no-print mb-20">
+        <p>Generated with Gemini AI</p>
+    </div>
+
+    <!-- Floating AI Button -->
+    <button onclick="toggleChat()" class="ai-float-btn no-print bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center gap-2 group">
+        <i class="fas fa-sparkles text-xl group-hover:rotate-12 transition-transform"></i>
+        <span class="font-bold pr-1 hidden group-hover:inline-block whitespace-nowrap transition-all">ถาม AI</span>
+    </button>
+
+    <!-- AI Chat Modal -->
+    <div id="ai-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-end sm:items-center justify-center p-4 no-print backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col max-h-[80vh] overflow-hidden transform transition-all scale-95 opacity-0" id="ai-modal-content">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 text-white flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <h3 class="font-bold">Gemini Travel Assistant</h3>
+                </div>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Chat Area -->
+            <div id="chat-history" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[300px]">
+                <!-- Welcome Message -->
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                        <i class="fas fa-sparkles text-sm"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700 border border-gray-100">
+                        สวัสดีครับ! ผมคือ AI ผู้ช่วยวางแผนเที่ยวโตเกียวของคุณ 🇯🇵 มีอะไรให้ช่วยไหมครับ? <br><br>
+                        ตัวอย่างคำถาม:
+                        <ul class="list-disc ml-4 mt-1 text-xs text-gray-500 space-y-1">
+                            <li>"ขอคำศัพท์ญี่ปุ่นสำหรับสั่งอาหารหน่อย"</li>
+                            <li>"แนะนำร้านขนมใน Karuizawa"</li>
+                            <li>"อากาศเดือนกุมภาหนาวแค่ไหน"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 bg-white border-t border-gray-100 shrink-0">
+                <div class="relative flex items-center">
+                    <input type="text" id="user-input" placeholder="พิมพ์คำถามของคุณที่นี่..." class="w-full bg-gray-100 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()" class="absolute right-2 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="send-btn">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "AIzaSyCBCpl5xsJrKp9Yg60frZTXOMExH9-5tQQ"; // System provides API key
+
+        // Toggle Chat Modal
+        function toggleChat() {
+            const modal = document.getElementById('ai-modal');
+            const content = document.getElementById('ai-modal-content');
+            
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                    document.getElementById('user-input').focus();
+                }, 10);
+            } else {
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Handle Enter Key
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') sendMessage();
+        }
+
+        // Helper to scroll to bottom
+        function scrollToBottom() {
+            const chatHistory = document.getElementById('chat-history');
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        // Generate Response using Gemini
+        async function callGeminiAPI(prompt) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const data = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) throw new Error('API Error');
+                
+                const result = await response.json();
+                return result.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error('Error:', error);
+                return "ขออภัยครับ ระบบขัดข้องชั่วคราว กรุณาลองใหม่ภายหลัง";
+            }
+        }
+
+        // Add Message to UI
+        function addMessage(text, isUser = false) {
+            const history = document.getElementById('chat-history');
+            const div = document.createElement('div');
+            div.className = isUser ? 'flex items-end justify-end gap-2' : 'flex items-start gap-3';
+
+            const avatar = isUser 
+                ? `<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 shrink-0 order-2"><i class="fas fa-user text-sm"></i></div>`
+                : `<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0"><i class="fas fa-sparkles text-sm"></i></div>`;
+
+            const bubbleClass = isUser 
+                ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-none shadow-md' 
+                : 'bg-white text-gray-700 rounded-2xl rounded-tl-none shadow-sm border border-gray-100';
+
+            // Parse Markdown for bot messages
+            const contentHtml = isUser ? text : marked.parse(text);
+
+            div.innerHTML = `
+                ${avatar}
+                <div class="${bubbleClass} p-3 text-sm max-w-[80%] prose prose-sm ${isUser ? 'prose-invert' : ''}">
+                    ${contentHtml}
+                </div>
+            `;
+            
+            history.appendChild(div);
+            scrollToBottom();
+        }
+
+        // Show Loading Indicator
+        function showLoading() {
+            const history = document.getElementById('chat-history');
+            const div = document.createElement('div');
+            div.id = 'loading-dots';
+            div.className = 'flex items-start gap-3';
+            div.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0"><i class="fas fa-sparkles text-sm"></i></div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 flex gap-1">
+                    <div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-indigo-400 rounded-full typing-dot"></div>
+                </div>
+            `;
+            history.appendChild(div);
+            scrollToBottom();
+        }
+
+        function removeLoading() {
+            const loading = document.getElementById('loading-dots');
+            if (loading) loading.remove();
+        }
+
+        // Main Send Logic
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            input.value = '';
+            input.disabled = true;
+            document.getElementById('send-btn').disabled = true;
+
+            addMessage(text, true);
+            showLoading();
+
+            const systemContext = "You are a helpful Tokyo travel assistant. The user is going on an 8-day trip to Tokyo, Kamakura, Gala Yuzawa, Karuizawa, and Kawaguchiko in early February. It is winter. Answer briefly, helpful, and in Thai language.";
+            const response = await callGeminiAPI(`${systemContext}\n\nUser Question: ${text}`);
+
+            removeLoading();
+            addMessage(response, false);
+
+            input.disabled = false;
+            document.getElementById('send-btn').disabled = false;
+            input.focus();
+        }
+
+        // Quick Action: Ask Gemini
+        function askGemini(question) {
+            toggleChat();
+            const input = document.getElementById('user-input');
+            input.value = question;
+            sendMessage();
+        }
+
+        // Feature: Generate Packing List
+        async function generatePackingList() {
+            toggleChat();
+            const input = document.getElementById('user-input');
+            
+            addMessage("✨ ช่วยจัดกระเป๋าสำหรับทริปโตเกียว 8 วันในเดือนกุมภาพันธ์ให้หน่อย", true);
+            showLoading();
+
+            const prompt = "Create a concise packing list for an 8-day trip to Tokyo, Gala Yuzawa (snow), and Kawaguchiko in early February. Format as a checklist using Markdown. Language: Thai.";
+            const response = await callGeminiAPI(prompt);
+
+            removeLoading();
+            addMessage(response, false);
+        }
+    </script>
 </body>
 </html>
