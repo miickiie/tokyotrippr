@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokyo Trip 8 Days (AI Powered)</title>
+    <title>Tokyo Trip 8 Days (Interactive)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -40,6 +40,27 @@
             z-index: 10;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+        /* Details Expansion Animation */
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+        }
+        .details-content.open {
+            max-height: 500px; /* Arbitrary large height */
+            opacity: 1;
+            margin-top: 1rem;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 1rem;
+        }
+        .chevron-icon {
+            transition: transform 0.3s;
+        }
+        .card-open .chevron-icon {
+            transform: rotate(180deg);
+        }
+
         /* AI Chat Styles */
         .ai-float-btn {
             position: fixed;
@@ -66,6 +87,7 @@
             .no-print { display: none !important; }
             body { background-color: white; }
             .card-shadow { box-shadow: none; }
+            .details-content { max-height: none !important; opacity: 1 !important; display: block !important; }
         }
     </style>
 </head>
@@ -86,7 +108,7 @@
             <h1 class="text-3xl font-bold drop-shadow-md"><i class="fas fa-snowflake mr-2"></i>TOKYO WINTER</h1>
             <p class="text-lg opacity-90 font-medium mt-1">8 Days 7 Nights (2-9 Feb 2026)</p>
             <div class="mt-4 bg-white/30 backdrop-blur-md rounded-full inline-block px-4 py-1 text-sm font-medium shadow-sm">
-                ✨ แผนเที่ยวอัจฉริยะ AI-Powered
+                👆 แตะที่แต่ละวันเพื่อดูตารางเวลา
             </div>
         </div>
 
@@ -111,19 +133,46 @@
                 <!-- Day 1 -->
                 <div class="mb-8 relative">
                     <div class="absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white">1</div>
-                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow cursor-pointer" onclick="askGemini('แนะนำร้านอาหารอร่อยแถว Asakusa หรือ Ueno สำหรับมื้อเย็นราคาประหยัดหน่อย')">
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow cursor-pointer group" onclick="toggleDetails(this)">
+                        <!-- Main Card Content -->
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-gray-800">Mon 02: Hello Tokyo!</h3>
-                            <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                            <div class="flex items-center gap-2">
+                                <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                                <i class="fas fa-chevron-down text-blue-400 chevron-icon"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-600 text-sm mb-3">✈️ ถึง 08:15 น. -> ฝากของ -> เที่ยววัดเก่า</p>
+                        <p class="text-gray-600 text-sm mb-2">✈️ ถึง 08:15 น. -> ฝากของ -> เที่ยววัดเก่า</p>
                         <div class="flex gap-2 flex-wrap">
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Asakusa</span>
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Skytree</span>
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Ueno</span>
                         </div>
-                        <div class="mt-2 text-right">
-                             <span class="text-xs text-blue-400"><i class="fas fa-sparkles"></i> แตะเพื่อหาของกิน</span>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">08:15</span>
+                                <div>ถึงสนามบิน Narita / ผ่าน ตม. / เดินทางเข้าเมือง</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">10:30</span>
+                                <div>ฝากกระเป๋าที่โรงแรม (Ueno/Asakusa Area)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">บ่าย</span>
+                                <div><b>Asakusa:</b> ไหว้พระวัด Sensoji, ถ่ายรูปโคมแดง<br>เดินข้ามแม่น้ำ Sumida ไปถ่ายรูปตึก Asahi & Skytree</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">เย็น</span>
+                                <div><b>Ueno:</b> เดินตลาด Ameyoko หาของกินสตรีทฟู้ดราคาถูก</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-blue-100 mt-2 text-xs">
+                                <i class="fas fa-train text-blue-500"></i> <b>เดินทาง:</b> Keisei Skyliner (เข้าเมือง) + Metro (ในเมือง)
+                            </div>
+                            <button onclick="event.stopPropagation(); askGemini('แนะนำร้านอาหารมื้อเย็นแถว Ueno ราคาไม่แพง อร่อยๆ')" class="mt-2 text-blue-500 hover:text-blue-700 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ให้ AI แนะนำร้านอาหารวันนี้
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -131,18 +180,46 @@
                 <!-- Day 2 -->
                 <div class="relative">
                     <div class="absolute -left-[2.3rem] top-0 day-circle bg-blue-100 text-blue-600 border-2 border-white">2</div>
-                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow cursor-pointer group" onclick="toggleDetails(this)">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-gray-800">Tue 03: Art & Bay</h3>
-                            <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                            <div class="flex items-center gap-2">
+                                <span class="pass-badge-metro text-xs px-2 py-1 rounded-full font-bold">Metro 48hr</span>
+                                <i class="fas fa-chevron-down text-blue-400 chevron-icon"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-600 text-sm mb-3">🐠 อาหารเช้าตลาดปลา -> ดิจิทัลอาร์ต -> วิวอ่าว</p>
+                        <p class="text-gray-600 text-sm mb-2">🐠 ตลาดปลา -> ดิจิทัลอาร์ต -> วิวอ่าว</p>
                         <div class="flex gap-2 flex-wrap">
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Tsukiji</span>
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍TeamLab</span>
                             <span class="bg-white text-blue-600 text-xs px-2 py-1 rounded shadow-sm border border-blue-50">📍Odaiba</span>
                         </div>
-                        <p class="text-xs text-blue-400 mt-2">*Odaiba จ่ายเพิ่มค่า Yurikamome</p>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">08:00</span>
+                                <div><b>Tsukiji Outer Market:</b> ทานมื้อเช้า (ไข่หวาน, ข้าวหน้าปลาดิบ)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">10:30</span>
+                                <div><b>TeamLab Planets (Toyosu):</b> เดินชมศิลปะดิจิทัล (ต้องจองล่วงหน้า)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">บ่าย</span>
+                                <div><b>Odaiba:</b> ถ่ายรูป Gundam Unicorn, เทพีเสรีภาพ, ห้าง DiverCity</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-blue-500 w-12">เย็น</span>
+                                <div><b>Roppongi Hills:</b> ชมไฟประดับ Illumination (ถ้ามี) หรือ City View</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-blue-100 mt-2 text-xs">
+                                <i class="fas fa-train text-blue-500"></i> <b>เดินทาง:</b> Metro Pass + Yurikamome (จ่ายเพิ่ม)
+                            </div>
+                             <button onclick="event.stopPropagation(); askGemini('วิธีจองตั๋ว TeamLab Planets ทำอย่างไร')" class="mt-2 text-blue-500 hover:text-blue-700 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ถามวิธีจอง TeamLab
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,18 +229,44 @@
                 <!-- Day 3 -->
                 <div class="relative">
                     <div class="absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white">3</div>
-                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-shadow cursor-pointer" onclick="askGemini('ช่วยเล่าประวัติวัดพระใหญ่ Kamakura Daibutsu แบบสั้นๆ สนุกๆ หน่อย')">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group" onclick="toggleDetails(this)">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-gray-800">Wed 04: Seaside Vibe</h3>
-                            <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">IC Card</span>
+                            <div class="flex items-center gap-2">
+                                <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">IC Card</span>
+                                <i class="fas fa-chevron-down text-gray-400 chevron-icon"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-600 text-sm mb-3">🌊 นั่งรถไฟไปไหว้พระใหญ่ริมทะเล & โยโกฮาม่า</p>
+                        <p class="text-gray-600 text-sm mb-2">🌊 นั่งรถไฟไปไหว้พระใหญ่ริมทะเล & โยโกฮาม่า</p>
                         <div class="flex gap-2 flex-wrap">
                             <span class="bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50">📍Kamakura</span>
                             <span class="bg-white text-purple-600 text-xs px-2 py-1 rounded shadow-sm border border-purple-50">📍Yokohama</span>
                         </div>
-                        <div class="mt-2 text-right">
-                             <span class="text-xs text-purple-400"><i class="fas fa-sparkles"></i> แตะเพื่อฟังประวัติ</span>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">09:00</span>
+                                <div>เดินทางไป Kamakura (รถไฟ JR Yokosuka Line)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">เช้า</span>
+                                <div>ไหว้พระใหญ่ <b>Kamakura Daibutsu</b>, วัด Hase-dera</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">บ่าย</span>
+                                <div>นั่งรถไฟ Enoden ไป <b>Kamakurakokomae</b> (จุดถ่ายรูป Slam Dunk)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">เย็น</span>
+                                <div>แวะ <b>Yokohama:</b> เดินเล่น Minato Mirai, โกดังอิฐแดง, Chinatown</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-gray-200 mt-2 text-xs">
+                                <i class="fas fa-train text-gray-500"></i> <b>เดินทาง:</b> ใช้บัตร IC Card จ่ายรายเที่ยว หรือ Enoshima Pass
+                            </div>
+                             <button onclick="event.stopPropagation(); askGemini('แนะนำจุดถ่ายรูปสวยๆ ใน Kamakura')" class="mt-2 text-purple-500 hover:text-purple-700 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ถามจุดถ่ายรูป Kamakura
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -176,30 +279,106 @@
                 </div>
 
                 <!-- Day 4 -->
-                <div class="flex gap-4 mb-6 mt-4 items-start cursor-pointer" onclick="askGemini('ไป Gala Yuzawa ต้องเตรียมตัวอย่างไร เสื้อผ้าแบบไหน')">
+                <div class="flex gap-4 mb-6 mt-4 items-start cursor-pointer group" onclick="toggleDetails(this)">
                     <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">4</div>
                     <div class="w-full">
-                        <h3 class="font-bold text-green-900">Thu 05: Snow Fun ❄️</h3>
-                        <p class="text-sm text-gray-600">นั่ง Shinkansen ไปเล่นหิมะที่ <b>Gala Yuzawa</b> (ไปเช้า-เย็นกลับ)</p>
-                        <div class="mt-1 text-xs text-green-600 opacity-70"><i class="fas fa-sparkles"></i> แตะเพื่อขอคำแนะนำชุดลุยหิมะ</div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-green-900">Thu 05: Snow Fun ❄️</h3>
+                            <i class="fas fa-chevron-down text-green-600 chevron-icon"></i>
+                        </div>
+                        <p class="text-sm text-gray-600">นั่ง Shinkansen ไปเล่นหิมะที่ <b>Gala Yuzawa</b></p>
+                        
+                        <!-- Hidden Details -->
+                         <div class="details-content text-sm text-gray-700 space-y-2">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">08:00</span>
+                                <div>ขึ้น <b>Joetsu Shinkansen</b> (Tokyo -> Gala Yuzawa) *ต้องจองที่นั่ง</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">10:00</span>
+                                <div>ถึงลานสกี เช่าชุด/อุปกรณ์ เล่นถาดเลื่อน หรือสกี</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">16:00</span>
+                                <div>นั่ง Shinkansen กลับโตเกียว</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">เย็น</span>
+                                <div>ทานมื้อเย็นอุ่นๆ (Yakiniku หรือ Shabu) ในโตเกียว</div>
+                            </div>
+                             <button onclick="event.stopPropagation(); askGemini('เช่าชุดที่ Gala Yuzawa ราคาเท่าไหร่')" class="mt-2 text-green-600 hover:text-green-800 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ถามราคาเช่าชุดสกี
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Day 5 -->
-                <div class="flex gap-4 mb-6 items-start">
+                <div class="flex gap-4 mb-6 items-start cursor-pointer group" onclick="toggleDetails(this)">
                     <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">5</div>
-                    <div>
-                        <h3 class="font-bold text-green-900">Fri 06: Shopping & Anime 🛍️</h3>
+                    <div class="w-full">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-green-900">Fri 06: Shopping & Anime 🛍️</h3>
+                             <i class="fas fa-chevron-down text-green-600 chevron-icon"></i>
+                        </div>
                         <p class="text-sm text-gray-600">นั่ง Shinkansen ไป <b>Karuizawa</b> เย็นกลับมาเดิน <b>Akihabara</b></p>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                             <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">09:00</span>
+                                <div>ขึ้น <b>Hokuriku Shinkansen</b> (Tokyo -> Karuizawa)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">เช้า</span>
+                                <div>เดินเล่น Kyu-Karuizawa Ginza Street (เมืองเก่า)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">บ่าย</span>
+                                <div>ช้อปปิ้ง <b>Karuizawa Prince Shopping Plaza</b> (Outlet วิวสวยมาก)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">เย็น</span>
+                                <div>กลับโตเกียว -> ไปเดินย่าน <b>Akihabara</b> ดูโมเดล/เครื่องใช้ไฟฟ้า</div>
+                            </div>
+                            <button onclick="event.stopPropagation(); askGemini('Karuizawa Outlet มีแบรนด์อะไรน่าสนใจบ้าง')" class="mt-2 text-green-600 hover:text-green-800 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ถามแบรนด์เนมที่ Karuizawa
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Day 6 -->
-                <div class="flex gap-4 items-start">
+                <div class="flex gap-4 items-start cursor-pointer group" onclick="toggleDetails(this)">
                     <div class="day-circle bg-white text-green-600 border-2 border-green-100 shrink-0">6</div>
-                    <div>
-                        <h3 class="font-bold text-green-900">Sat 07: Mt. Fuji Stay 🗻</h3>
+                    <div class="w-full">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-green-900">Sat 07: Mt. Fuji Stay 🗻</h3>
+                             <i class="fas fa-chevron-down text-green-600 chevron-icon"></i>
+                        </div>
                         <p class="text-sm text-gray-600">นั่ง Fuji Excursion ยิงยาวไปค้างคืนที่ <b>Kawaguchiko</b></p>
+                        
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                             <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">เช้า</span>
+                                <div>ขึ้นรถไฟ <b>Fuji Excursion</b> (Shinjuku -> Kawaguchiko) *จองยาก จองล่วงหน้า!</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">บ่าย</span>
+                                <div>เที่ยวรอบทะเลสาบ: เจดีย์แดง Chureito Pagoda, Oishi Park, Music Forest</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-green-600 w-12">ค่ำ</span>
+                                <div>เข้าที่พัก (Ryokan) แช่ออนเซ็นดูวิวฟูจิ</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-green-100 mt-2 text-xs">
+                                <i class="fas fa-info-circle text-green-500"></i> วันสุดท้ายของ JR Wide Pass ใช้ขาไปคุ้มแล้ว
+                            </div>
+                             <button onclick="event.stopPropagation(); askGemini('แนะนำเรียวกังที่มีออนเซ็นส่วนตัวที่ Kawaguchiko')" class="mt-2 text-green-600 hover:text-green-800 text-xs font-bold flex items-center gap-1">
+                                <i class="fas fa-sparkles"></i> ให้ AI ช่วยหาที่พัก
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,16 +388,38 @@
                  <!-- Day 7 -->
                 <div class="mb-8 relative">
                     <div class="absolute -left-[2.3rem] top-0 day-circle bg-yellow-100 text-yellow-600 border-2 border-white">7</div>
-                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 hover:shadow-md transition-shadow cursor-pointer group" onclick="toggleDetails(this)">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-gray-800">Sun 08: Youth City</h3>
-                            <span class="bg-yellow-100 text-yellow-800 border border-yellow-300 text-xs px-2 py-1 rounded-full font-bold">Bus + IC</span>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-yellow-100 text-yellow-800 border border-yellow-300 text-xs px-2 py-1 rounded-full font-bold">Bus + IC</span>
+                                <i class="fas fa-chevron-down text-yellow-600 chevron-icon"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-600 text-sm mb-3">🚌 นั่งบัสกลับชินจูกุ -> เดินย่านวัยรุ่น</p>
+                        <p class="text-gray-600 text-sm mb-2">🚌 นั่งบัสกลับชินจูกุ -> เดินย่านวัยรุ่น</p>
                         <div class="flex gap-2 flex-wrap">
                             <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Shinjuku</span>
                             <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Harajuku</span>
                             <span class="bg-white text-yellow-600 text-xs px-2 py-1 rounded shadow-sm border border-yellow-50">📍Shibuya</span>
+                        </div>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                             <div class="flex gap-3">
+                                <span class="font-bold text-yellow-700 w-12">เช้า</span>
+                                <div>เดินเล่นริมทะเลสาบตอนเช้า / Check-out</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-yellow-700 w-12">10:00</span>
+                                <div>ขึ้น <b>Highway Bus</b> กลับ Shinjuku (สะดวกกว่ารถไฟเพราะไม่ต้องแบกของเปลี่ยนสาย)</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-yellow-700 w-12">บ่าย</span>
+                                <div><b>Harajuku:</b> ศาลเจ้า Meiji, ถนน Takeshita<br><b>Shibuya:</b> ห้าแยก, Shibuya Sky (จองรอบ Sunset)</div>
+                            </div>
+                             <div class="bg-white p-2 rounded border border-yellow-200 mt-2 text-xs">
+                                <i class="fas fa-bus text-yellow-600"></i> <b>เดินทาง:</b> Highway Bus (2,200¥) + IC Card
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,14 +427,36 @@
                  <!-- Day 8 -->
                  <div class="relative">
                     <div class="absolute -left-[2.3rem] top-0 day-circle bg-gray-200 text-gray-600 border-2 border-white">8</div>
-                    <div class="bg-gray-100 p-4 rounded-xl border border-gray-200">
+                    <div class="bg-gray-100 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-shadow cursor-pointer group" onclick="toggleDetails(this)">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-gray-800">Mon 09: Bye Bye! 👋</h3>
-                            <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">Keisei Train</span>
+                            <div class="flex items-center gap-2">
+                                <span class="pass-badge-pay text-xs px-2 py-1 rounded-full font-bold">Keisei Train</span>
+                                <i class="fas fa-chevron-down text-gray-500 chevron-icon"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-600 text-sm mb-2">เก็บตกของฝาก -> ไปสนามบิน (รถไฟธรรมดา)</p>
+                        <p class="text-gray-600 text-sm mb-2">เก็บตกของฝาก -> ไปสนามบิน</p>
                         <div class="bg-white text-red-500 border border-red-100 text-xs px-3 py-2 rounded-lg inline-block font-medium shadow-sm">
                             <i class="fas fa-plane mr-1"></i> Flight 17:35 (ถึงสนามบิน 15:30)
+                        </div>
+
+                        <!-- Hidden Details -->
+                        <div class="details-content text-sm text-gray-700 space-y-2">
+                             <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">เช้า</span>
+                                <div>ฝากกระเป๋าที่ Locker / เก็บตกซื้อของฝากย่าน Ueno หรือ Shinjuku</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">13:30</span>
+                                <div>เดินทางไปสนามบิน Narita (เผื่อเวลา 2-3 ชม.)</div>
+                            </div>
+                             <div class="flex gap-3">
+                                <span class="font-bold text-gray-600 w-12">15:30</span>
+                                <div>ถึงสนามบิน Check-in / ซื้อขนม Duty Free</div>
+                            </div>
+                             <div class="bg-white p-2 rounded border border-gray-300 mt-2 text-xs">
+                                <i class="fas fa-train text-gray-500"></i> <b>เดินทาง:</b> Keisei Skyliner หรือ Main Line (ประหยัด)
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -251,7 +474,7 @@
     </div>
 
     <div class="text-center text-gray-400 text-xs no-print mb-20">
-        <p>Generated with Gemini AI</p>
+        <p>Build with ❤️ by Miickiie</p>
     </div>
 
     <!-- Floating AI Button -->
@@ -308,6 +531,23 @@
 
     <script>
         const apiKey = "AIzaSyCBCpl5xsJrKp9Yg60frZTXOMExH9-5tQQ"; // System provides API key
+
+        // Toggle Details Logic
+        function toggleDetails(card) {
+            const content = card.querySelector('.details-content');
+            
+            // Close all other cards
+            document.querySelectorAll('.details-content').forEach(el => {
+                if (el !== content) {
+                    el.classList.remove('open');
+                    el.closest('.group').classList.remove('card-open');
+                }
+            });
+
+            // Toggle current card
+            content.classList.toggle('open');
+            card.classList.toggle('card-open');
+        }
 
         // Toggle Chat Modal
         function toggleChat() {
